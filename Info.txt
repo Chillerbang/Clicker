@@ -1,0 +1,44 @@
+Walker Clicker
+
+Overview
+Click the button, race your friends to the finish line
+
+Games work in a 1v1 scenario
+
+Multiple sessions automatically assigned by server
+(finds opponent for client)
+
+Explanation of protocol
+Using UDP 2 classes are sent
+classes are serialized then sent
+Under Client.DataServerToClient.java for 
+	server to client relations
+	
+	ID // controls ID of local game instance
+		if negative something weird happened
+	EneID // controls ID of opponent game instance
+		if negative no opponent
+	GameOver // controls Game operation
+		boolean to display end screen
+	scoreLocal // score for local client
+		if negative local has not to be sent new values 
+	scoreEnenmy // score of opponent
+		if negative no opponent found 
+	CTS // storage of initial class used to create and ID client
+		if null game client is not ready
+		if islose is true client lost
+		
+				NB Client.DataServerToClient.java can modify Server.ClientToServer.java for control
+					emulates response to commands
+
+Under Server.ClientToServer.java for 
+	initial server connection request
+	identification
+	game state control 
+
+ 
+
+ 
+ 2D art taken from 
+ http://opengameart.org/content/antifareas-rpg-sprite-set-1-enlarged-w-transparent-background
+ Big thanks to Antifarea for making their art free
